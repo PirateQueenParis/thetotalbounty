@@ -7,7 +7,8 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class PostAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['title', 'is_draft']
+    list_editable = ['is_draft']
 
 
 class CommentAdmin(admin.ModelAdmin):

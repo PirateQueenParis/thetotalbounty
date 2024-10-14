@@ -11,6 +11,12 @@ class Category(models.Model):
         return self.name
 
 
+class PublishedManager(models.Manager):
+
+    def published(self, **kwargs):
+        return self.filter(is_draft=False)
+
+
 class Post(models.Model):
     title = models.CharField(max_length=255)
     body = models.TextField()
@@ -18,6 +24,9 @@ class Post(models.Model):
     last_modified = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField("Category", related_name="posts")
     view_count = models.IntegerField(default=0)
+    is_draft = models.BooleanField(default=False)
+
+    objects = PublishedManager()
 
     def __str__(self):
         return self.title
