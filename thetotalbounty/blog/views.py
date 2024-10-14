@@ -31,7 +31,8 @@ def blog_detail(request, pk):
         "post": post,
         "comments": comments,
     }
-    post.view_count = F('view_count') + 1
-    post.save()
-    post.refresh_from_db()
+    if not request.user.is_superuser:
+        post.view_count = F('view_count') + 1
+        post.save()
+        post.refresh_from_db()
     return render(request, "blog/detail.html", context)
