@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 {% load static %}
+{% load account %}
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <title>My Personal Blog</title>
-            <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-            <link rel="stylesheet" type="text/css" href="{% static 'global.css' %}">
+        <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'global.css' %}">
     </head>
     <body>
         <div class="pageContainer">
@@ -17,8 +18,12 @@
                 <a href="{% url "blog_index" %}">Match Ratings</a>
                 {% if user.is_superuser %}
                     <a href="{% url "admin:index" %}">Admin</a>
+                {% endif %}
+                {% if user.is_authenticated %}
+                    <small>Welcome, {% user_display user %}</small>
+                    <a href="{% url "account_logout" %}">Log out</a>
                 {% else %}
-                    <a href="{% url "admin:index" %}">Log in</a>
+                    <a href="{% url "account_login" %}?next={{ request.path }}">Log in</a>
                 {% endif %}
             </div>
             <hr>

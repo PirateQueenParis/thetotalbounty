@@ -17,7 +17,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from allauth.account.decorators import secure_admin_login
-from . import views
 
 admin.autodiscover()
 admin.site.login = secure_admin_login(admin.site.login)
@@ -25,6 +24,5 @@ admin.site.login = secure_admin_login(admin.site.login)
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("blog.urls")),
-    path("logout", views.logout_view, name="logout"),
     path("accounts/", include("allauth.urls")),
 ]
