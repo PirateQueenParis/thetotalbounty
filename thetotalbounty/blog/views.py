@@ -1,5 +1,6 @@
 # Create your views here.
 from django.shortcuts import render
+from django.db.models import F
 
 from blog.models import Post, Comment
 
@@ -30,4 +31,7 @@ def blog_detail(request, pk):
         "post": post,
         "comments": comments,
     }
+    post.view_count = F('view_count') + 1
+    post.save()
+    post.refresh_from_db()
     return render(request, "blog/detail.html", context)

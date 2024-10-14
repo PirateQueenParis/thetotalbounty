@@ -17,6 +17,7 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField("Category", related_name="posts")
+    view_count = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
