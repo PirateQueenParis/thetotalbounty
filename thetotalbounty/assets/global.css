@@ -1,0 +1,40 @@
+body {background-color: beige; display: flex; flex-direction: column; justify-content: center; align-items: center;}
+
+h1 {
+  align-self: center;
+}
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  width: 66%;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.pageContentContainer {
+  background-color: rgba(0,0,0,0.2);
+  padding: 1.7rem;
+  margin-top: 1.7rem;
+  flex: 1;
+}
+
+.postPageContainer {
+  display: flex;
+}
+
+.posts {
+  flex-direction: column;
+  flex: 4;
+}
+
+.about {
+  background-color: pink;
+  flex: 1;
+  flex-direction: column;
+}
