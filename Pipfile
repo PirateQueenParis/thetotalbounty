@@ -6,11 +6,11 @@ name = "pypi"
 [packages]
 django = "*"
 psycopg = {extras = ["binary"], version = "*"}
-pylint-django = "*"
-djlint = "*"
 django-allauth = "*"
 
 [dev-packages]
+pylint-django = "*"
+djlint = "*"
 
 [requires]
 python_version = "3.12"
