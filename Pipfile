@@ -5,8 +5,10 @@ name = "pypi"
 
 [packages]
 django = "*"
-psycopg = {extras = ["binary"], version = "*"}
+psycopg = {extras = ["binary"] }
 django-allauth = "*"
+gunicorn = "*"
+django-sendmail-backend = "*"
 
 [dev-packages]
 pylint-django = "*"
