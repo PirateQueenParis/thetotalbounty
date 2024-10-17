@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-6%v(3wu50a#$n&!$^$ge*kmoh5oi7&c(g^o1v1&dq^6jri-p+=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['168.235.72.53']
+ALLOWED_HOSTS = ['thetotalbounty.com', 'www.thetotalbounty.com']
 
 
 AUTHENTICATION_BACKENDS = [
