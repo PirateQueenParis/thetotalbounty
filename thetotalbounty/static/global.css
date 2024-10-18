@@ -1,3 +1,7 @@
+html {
+  font-family: "Poppins";
+}
+
 body {
   background-color: beige;
   display: flex;
@@ -7,18 +11,36 @@ body {
 }
 
 h1 {
+  font-family: "New Rocker";
   align-self: center;
 }
 
-h1,
 h2,
 h3,
 h4 {
+  font-family: "Open Sans";
+  color: black;
+}
+
+h1 a {
+  color: black;
+  text-decoration: none;
+}
+
+h1 a:hover {
+  text-decoration: none;
+}
+
+h1 a:visited {
   color: black;
 }
 
 a {
-  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .pageContainer {
@@ -27,19 +49,16 @@ a {
   width: 66%;
 }
 
-.navBar {
+nav {
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: space-around;
-  padding-top: 10.7rem;
-  margin-top: 10rem;
 }
 
 .pageContentContainer {
   background-color: rgba(0, 0, 0, 0.2);
-  padding: 1.7rem;
-  margin-top: 1.7rem;
+  padding: 0.5rem 1.7rem;
   flex: 1;
 }
 
@@ -55,5 +74,16 @@ a {
 .about {
   flex: 1;
   flex-direction: column;
-  margin-left: 1rem;
+  margin-left: 1.5rem;
+}
+
+header {
+  background-color: beige;
+}
+
+.mainHeader {
+  margin-top: 1.7rem;
+  background-color: beige;
+  border-width: 0 0 0 0;
+  width: 50%;
 }

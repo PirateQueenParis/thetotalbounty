@@ -4,16 +4,27 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>My Personal Blog</title>
+        <title>The Total Bounty</title>
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Open+Sans">
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Poppins">
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=New+Rocker">
         <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
         <link rel="stylesheet" type="text/css" href="{% static 'global.css' %}">
+        <meta name="description"
+              content="Salty Paris blogs about their semi-pro fighting game career, their love of wrestling, and life.">
+        <meta name="keywords"
+              content="wrestling, fighting games, salty paris, travel, food">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
     <body>
-        <div class="pageContainer">
+        <header class="mainHeader">
             <h1>
                 <a href="{% url "blog_index" %}">The Total Bounty</a>
             </h1>
-            <div class="navBar">
+            <nav>
                 <a href="{% url "blog_index" %}">Home</a>
                 <a href="{% url "blog_index" %}">Match Ratings</a>
                 {% if user.is_superuser %}
@@ -25,8 +36,9 @@
                 {% else %}
                     <a href="{% url "account_login" %}?next={{ request.path }}">Log in</a>
                 {% endif %}
-            </div>
-            <hr>
+            </nav>
+        </header>
+        <div class="pageContainer">
             <div class="pageContentContainer">
                 {% block page_title %}
                 {% endblock page_title %}
