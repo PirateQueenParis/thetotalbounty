@@ -10,6 +10,17 @@ h1 {
   align-self: center;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  color: black;
+}
+
+a {
+  color: black;
+}
+
 .pageContainer {
   display: flex;
   flex-direction: column;
@@ -21,6 +32,8 @@ h1 {
   flex-direction: row;
   width: 100%;
   justify-content: space-around;
+  padding-top: 10.7rem;
+  margin-top: 10rem;
 }
 
 .pageContentContainer {
