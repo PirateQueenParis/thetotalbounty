@@ -6,26 +6,28 @@
     {% block posts %}
       <div class="posts">
         {% for post in posts %}
-          <h3>
-            <a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a>
-          </h3>
-          <small>
-            {{ post.created_on.date }} | Categories:
-            {% for category in post.categories.all %}
-              <a href="{% url 'blog_category' category.name %}">{{ category.name }}</a>
-            {% endfor %}
-          </small>
-          <p>
-            {{ post.body | slice:":400" }}
-            {% if post.body|length > 400 %}...{% endif %}
-          </p>
+          <article>
+            <h3>
+              <a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a>
+            </h3>
+            <small>
+              {{ post.created_on.date }} | Categories:
+              {% for category in post.categories.all %}
+                <a href="{% url 'blog_category' category.name %}">{{ category.name }}</a>
+              {% endfor %}
+            </small>
+            <p>
+              {{ post.body | slice:":400" }}
+              {% if post.body|length > 400 %}...{% endif %}
+            </p>
+          </article>
         {% endfor %}
       </div>
     {% endblock posts %}
     <div class="about">
       <h3>About me</h3>
-      <small>Salty Paris is a semi-retired Australian fighting game player and wrestling fan. Raised watching WCW as a kid, Paris has carried that love of
-        theatrics and large muscle men through their fighting game career.
+      <small>Salty Paris is a genderfluid pirate, semi-retired Australian fighting game player and wrestling fan. Raised watching WCW as a kid, Paris has carried that love of
+        theatrics and large muscle people through their fighting game career.
       </small>
     </div>
   </div>

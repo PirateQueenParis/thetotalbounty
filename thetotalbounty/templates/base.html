@@ -25,26 +25,35 @@
                 <a href="{% url "blog_index" %}">The Total Bounty</a>
             </h1>
             <nav>
-                <a href="{% url "blog_index" %}">Home</a>
-                <a href="{% url "blog_index" %}">Match Ratings</a>
-                {% if user.is_superuser %}
-                    <a href="{% url "admin:index" %}">Admin</a>
-                {% endif %}
-                {% if user.is_authenticated %}
-                    <small>Welcome, {% user_display user %}</small>
-                    <a href="{% url "account_logout" %}">Log out</a>
-                {% else %}
-                    <a href="{% url "account_login" %}?next={{ request.path }}">Log in</a>
-                {% endif %}
+                <ul>
+                    {% comment %}                     <li>
+                        <a href="{% url "blog_index" %}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url "blog_index" %}">Match Ratings</a>
+                    </li> {% endcomment %}
+                    {% if user.is_superuser %}
+                        <li>
+                            <a href="{% url "admin:index" %}">Admin</a>
+                        </li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url "account_logout" %}">Log out</a>
+                        </li>
+                        {% comment %}                     {% else %}
+                        <li>
+                            <a href="{% url "account_login" %}?next={{ request.path }}">Log in</a>
+                        </li> {% endcomment %}
+                    {% endif %}
+                </ul>
             </nav>
         </header>
         <div class="pageContainer">
-            <div class="pageContentContainer">
-                {% block page_title %}
-                {% endblock page_title %}
-                {% block page_content %}
-                {% endblock page_content %}
-            </div>
+            {% block page_title %}
+            {% endblock page_title %}
+            {% block page_content %}
+            {% endblock page_content %}
         </div>
     </body>
 </html>

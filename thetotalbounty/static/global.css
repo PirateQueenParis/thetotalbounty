@@ -1,5 +1,5 @@
 html {
-  font-family: "Poppins";
+  font-family: "Open Sans";
 }
 
 body {
@@ -18,8 +18,12 @@ h1 {
 h2,
 h3,
 h4 {
-  font-family: "Open Sans";
+  font-family: "Poppins";
   color: black;
+}
+
+h3 {
+  margin-bottom: 0.5rem;
 }
 
 h1 a {
@@ -47,6 +51,9 @@ a:hover {
   display: flex;
   flex-direction: column;
   width: 66%;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1.7rem;
+  flex: 1;
 }
 
 nav {
@@ -54,12 +61,6 @@ nav {
   flex-direction: row;
   width: 100%;
   justify-content: space-around;
-}
-
-.pageContentContainer {
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 0.5rem 1.7rem;
-  flex: 1;
 }
 
 .postPageContainer {
@@ -79,11 +80,10 @@ nav {
 
 header {
   background-color: beige;
+  width: 66%;
 }
 
 .mainHeader {
   margin-top: 1.7rem;
   background-color: beige;
-  border-width: 0 0 0 0;
-  width: 50%;
 }
