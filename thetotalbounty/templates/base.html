@@ -26,10 +26,13 @@
             </h1>
             <nav>
                 <ul>
-                    {% comment %}                     <li>
+                    <li>
                         <a href="{% url "blog_index" %}">Home</a>
                     </li>
                     <li>
+                        <a href="{% url "blog_index" %}">More coming soon!</a>
+                    </li>
+                    {% comment %} <li>
                         <a href="{% url "blog_index" %}">Match Ratings</a>
                     </li> {% endcomment %}
                     {% if user.is_superuser %}
