@@ -17,8 +17,8 @@
               {% endfor %}
             </small>
             <p>
-              {{ post.body | slice:":400" }}
-              {% if post.body|length > 400 %}...{% endif %}
+              {{ post.body | slice:":800" }}
+              {% if post.body|length > 800 %}...{% endif %}
             </p>
           </article>
         {% endfor %}
