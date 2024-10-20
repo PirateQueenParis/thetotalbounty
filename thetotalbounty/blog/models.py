@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.template.defaultfilters import slugify
-from thetotalbounty.thetotalbounty.utils import unique_slugify
+from thetotalbounty.utils import unique_slugify
 
 
 class Category(models.Model):
