@@ -24,8 +24,8 @@ def blog_category(request, category):
     return render(request, "blog/category.html", context)
 
 
-def blog_detail(request, pk):
-    post = Post.objects.published().get(pk=pk)
+def blog_detail(request, slug):
+    post = Post.objects.published().get(slug=slug)
     comments = Comment.objects.filter(post=post)
     context = {
         "post": post,
