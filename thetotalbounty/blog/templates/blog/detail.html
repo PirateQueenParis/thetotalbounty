@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% block page_title %}
   <h2>{{ post.title }}</h2>
-  <small>Views: {{ post.view_count }} |</small>
+  {% if user.is_superuser %}
+    <small>Views: {{ post.view_count }} |
+      <a href="{% url 'admin:blog_post_change' post.pk %}">Edit</a></small>
+  {% endif %}
 {% endblock page_title %}
 {% block page_content %}
   <small>
