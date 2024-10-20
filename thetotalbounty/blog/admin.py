@@ -7,8 +7,12 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'is_draft']
+    list_display = ['title', 'created_on', 'is_draft']
     list_editable = ['is_draft']
+
+    def save_model(self, request, obj: Post, form, change):
+        obj.author = request.user
+        return super().save_model(request, obj, form, change)
 
 
 class CommentAdmin(admin.ModelAdmin):

@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 
 class Category(models.Model):
@@ -23,8 +24,10 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField("Category", related_name="posts")
-    view_count = models.IntegerField(default=0)
+    view_count = models.IntegerField(default=0, editable=False)
     is_draft = models.BooleanField(default=False)
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, editable=False, null=True)
 
     objects = PublishedManager()
 
@@ -33,11 +36,11 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    author = models.CharField(max_length=60)
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, editable=False, null=True)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     post = models.ForeignKey("Post", on_delete=models.CASCADE)
 
     def __str__(self):
-
         return f"{self.author} on '{self.post}'"
