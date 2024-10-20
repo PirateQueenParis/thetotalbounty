@@ -29,7 +29,7 @@ class Post(models.Model):
     is_draft = models.BooleanField(default=False)
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, editable=False, null=True)
-    slug = models.SlugField(Blank=True, editable=False)
+    slug = models.SlugField(blank=True, editable=False)
 
     objects = PublishedManager()
 
