@@ -11,7 +11,7 @@
               href="https://fonts.googleapis.com/css?family=Poppins">
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=New+Rocker">
-        <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'simple.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'global.css' %}">
         <meta name="description"
               content="Salty Paris blogs about their semi-pro fighting game career, their love of wrestling, and life.">
@@ -21,6 +21,13 @@
     </head>
     <body>
         <header class="mainHeader">
+            <a href="{% url "blog_index" %}">
+                <img class="mainLogo"
+                     src="{% static 'logo.png' %}"
+                     alt="Salty Paris logo"
+                     width="200"
+                     height="200">
+            </a>
             <h1>
                 <a href="{% url "blog_index" %}">The Total Bounty</a>
             </h1>

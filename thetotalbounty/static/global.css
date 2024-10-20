@@ -88,4 +88,10 @@ header nav a:visited {
   padding-top: 1.7rem;
   background-color: black;
   width: 100%;
+  height: 250px;
+}
+
+.mainLogo {
+  position: absolute;
+  left: 2rem;
 }
