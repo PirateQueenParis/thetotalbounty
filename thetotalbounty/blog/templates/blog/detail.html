@@ -13,5 +13,8 @@
       <a href="{% url 'blog_category' category.name %}">{{ category.name }}</a>
     {% endfor %}
   </small>
+  {% autoescape off %}
   <p>{{ post.body | linebreaksbr }}</p>
+{% endautoescape%}
+  <p>{{post.test_body | linebreaksbr }}</p>
 {% endblock page_content %}

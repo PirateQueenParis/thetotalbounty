@@ -9,6 +9,9 @@ psycopg = {extras = ["binary"] }
 django-allauth = "*"
 gunicorn = "*"
 django-sendmail-backend = "*"
+django-tinymce = "*"
+django-filebrowser-no-grappelli = "*"
+pillow = "*"
 
 [dev-packages]
 pylint-django = "*"

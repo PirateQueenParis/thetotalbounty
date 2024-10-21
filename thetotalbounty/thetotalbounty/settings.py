@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -40,6 +41,7 @@ AUTHENTICATION_BACKENDS = [
 
 INSTALLED_APPS = [
     "blog.apps.BlogConfig",
+    'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'allauth',
     'allauth.account',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -140,7 +143,25 @@ STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
 
+MEDIA_URL = '/media/'
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),"static_cdn")
+MEDIA_ROOT = BASE_DIR / "media"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+TINYMCE_DEFAULT_CONFIG = {
+    "theme": "silver",
+    "height": 500,
+    "menubar": False,
+    "plugins": "advlist,autolink,lists,link,image,charmap,print,preview,anchor,"
+    "searchreplace,visualblocks,code,fullscreen,insertdatetime,media,table,paste,"
+    "code,help,wordcount",
+    "toolbar": "undo redo | formatselect | image |"
+    "bold italic backcolor | alignleft aligncenter "
+    "alignright alignjustify | bullist numlist outdent indent | "
+    "removeformat | help",
+}

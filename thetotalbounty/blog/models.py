@@ -1,7 +1,11 @@
 from django.db import models
 from django.conf import settings
 from django.template.defaultfilters import slugify
+from django.utils.html import format_html
+from tinymce.models import HTMLField
 from thetotalbounty.utils import unique_slugify
+from django import template
+from django.utils.safestring import mark_safe
 
 
 class Category(models.Model):

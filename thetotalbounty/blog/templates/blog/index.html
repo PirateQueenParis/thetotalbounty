@@ -17,7 +17,8 @@
               {% endfor %}
             </small>
             <p>
-              {{ post.body | slice:":800" }}
+              
+              {{ post.body | truncatechars_html:800 | safe  }}
               {% if post.body|length > 800 %}...{% endif %}
             </p>
           </article>
