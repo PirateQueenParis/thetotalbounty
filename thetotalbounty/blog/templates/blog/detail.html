@@ -14,7 +14,7 @@
     {% endfor %}
   </small>
   {% autoescape off %}
-  <p>{{ post.body | linebreaksbr }}</p>
-{% endautoescape%}
-  <p>{{post.test_body | linebreaksbr }}</p>
+    <p>{{ post.body | linebreaksbr }}</p>
+  {% endautoescape %}
+  <p>{{ post.test_body | linebreaksbr }}</p>
 {% endblock page_content %}

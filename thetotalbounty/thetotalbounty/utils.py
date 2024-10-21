@@ -1,6 +1,7 @@
 
 from django.utils.crypto import get_random_string
 
+
 def unique_slugify(instance, slug):
     model = instance.__class__
     unique_slug = slug

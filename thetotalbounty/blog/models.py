@@ -40,7 +40,7 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-    
+
     def save(self, *args, **kwargs):
         if not self.pk:
             self.slug = unique_slugify(self, slugify(self.title))

@@ -12,8 +12,8 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ['title', 'created_on', 'is_draft']
     list_editable = ['is_draft']
     formfield_overrides = {
-    models.TextField: {"widget": TinyMCE()},
-}  
+        models.TextField: {"widget": TinyMCE()},
+    }
 
     def save_model(self, request, obj: Post, form, change):
         obj.author = request.user

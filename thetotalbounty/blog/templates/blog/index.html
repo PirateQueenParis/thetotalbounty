@@ -16,11 +16,7 @@
                 <a href="{% url 'blog_category' category.name %}">{{ category.name }}</a>
               {% endfor %}
             </small>
-            <p>
-              
-              {{ post.body | truncatechars_html:800 | safe  }}
-              {% if post.body|length > 800 %}...{% endif %}
-            </p>
+            <p>{{ post.body | truncatechars_html:800 | safe }}</p>
           </article>
         {% endfor %}
       </div>
