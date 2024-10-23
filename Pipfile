@@ -6,12 +6,12 @@ name = "pypi"
 [packages]
 django = "*"
 psycopg = {extras = ["binary"] }
-django-allauth = "*"
 gunicorn = "*"
 django-sendmail-backend = "*"
 django-tinymce = "*"
 django-filebrowser-no-grappelli = "*"
 pillow = "*"
+django-allauth = {extras = ["socialaccount"], version = "*"}
 
 [dev-packages]
 pylint-django = "*"

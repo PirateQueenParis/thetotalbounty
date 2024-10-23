@@ -20,6 +20,7 @@ from django.urls import path, include
 from allauth.account.decorators import secure_admin_login
 from django.conf.urls.static import static
 from filebrowser.sites import site
+from .views import privacy_policy
 
 admin.autodiscover()
 admin.site.login = secure_admin_login(admin.site.login)
@@ -29,5 +30,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("blog.urls")),
     path("accounts/", include("allauth.urls")),
+    path('accounts/', include('allauth.socialaccount.urls')),
     path('tinymce/', include('tinymce.urls')),
+    path("privacypolicy", privacy_policy, name="privacy_policy"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

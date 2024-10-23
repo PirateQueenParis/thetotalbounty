@@ -4,7 +4,10 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>The Total Bounty</title>
+        <title>The Total Bounty
+            {% block title %}
+            {% endblock title %}
+        </title>
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Open+Sans">
         <link rel="stylesheet"
@@ -18,7 +21,11 @@
         <meta name="keywords"
               content="wrestling, fighting games, salty paris, travel, food">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
+        <link rel="shortcut icon"
+              type="image/png"
+              href="{% static 'favicon.png' %}" />
+        {% block page_head %}
+        {% endblock page_head %}
     </head>
     <body>
         <header class="mainHeader">
@@ -52,10 +59,10 @@
                         <li>
                             <a href="{% url "account_logout" %}">Log out</a>
                         </li>
-                        {% comment %}                     {% else %}
+                    {% else %}
                         <li>
-                            <a href="{% url "account_login" %}?next={{ request.path }}">Log in</a>
-                        </li> {% endcomment %}
+                            <a href="{% url "account_login" %}">Log in</a>
+                        </li>
                     {% endif %}
                 </ul>
             </nav>
@@ -66,5 +73,12 @@
             {% block page_content %}
             {% endblock page_content %}
         </div>
+        <footer>
+            <div class="footerLeft">
+                <small>
+                Skull and cross-shakers logo by Crossmirage. <a href="https://x.com/kineticharvest">Twitter</a> | <a href="https://bsky.app/profile/crossmirage.bsky.social">Bluesky</a></small>
+                <small><a href="{% url "privacy_policy" %}">Privacy policy</a></small>
+            </div>
+        </footer>
     </body>
 </html>
