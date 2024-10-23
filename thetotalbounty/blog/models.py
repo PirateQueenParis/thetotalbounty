@@ -1,12 +1,9 @@
+from allauth.account.signals import user_signed_up
 from django.db import models
 from django.conf import settings
+from django.dispatch import receiver
 from django.template.defaultfilters import slugify
-from django.utils.html import format_html
-from tinymce.models import HTMLField
 from thetotalbounty.utils import unique_slugify
-from django import template
-from django.utils.safestring import mark_safe
-
 
 class Category(models.Model):
     name = models.CharField(max_length=30)
@@ -56,3 +53,17 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"{self.author} on '{self.post}'"
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, unique=True, on_delete=models.CASCADE)
+    display_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        if self.display_name != '':
+            return self.display_name
+        else:
+            return self.user.get_username()
+        
+@receiver(user_signed_up)
+def create_user_profile(request, user, **kwargs):
+    UserProfile.objects.create(user=user)

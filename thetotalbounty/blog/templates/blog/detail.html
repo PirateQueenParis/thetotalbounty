@@ -1,4 +1,19 @@
 {% extends "base.html" %}
+{% block title %}
+  - {{ post.title }}
+{% endblock title %}
+{% block page_head %}
+  <title>The Total Bounty - {{ post.title }}</title>
+  <meta name="description"
+        content="Salty Paris blogs about their semi-pro fighting game career, their love of wrestling, and life.">
+  <script>
+    function myFunction() {
+      const form = document.getElementById("displayNameForm")
+      form.style.display = "block";
+      console.log("test")
+    }
+  </script>
+{% endblock page_head %}
 {% block page_title %}
   <h2>{{ post.title }}</h2>
   {% if user.is_superuser %}
@@ -16,5 +31,43 @@
   {% autoescape off %}
     <p>{{ post.body | linebreaksbr }}</p>
   {% endautoescape %}
-  <p>{{ post.test_body | linebreaksbr }}</p>
-{% endblock page_content %}
+  <hr>
+  <h4>Comments:</h4>
+  {% for comment in comments %}
+    <p>
+      On {{ comment.created_on.date }}, <b>{{ comment.author.userprofile }}</b>
+      {% if comment.author.is_superuser %}<b>(Admin)</b>{% endif %} wrote:
+        <br />
+        <br />
+        {{ comment.body | linebreaksbr }}
+      </p>
+      <hr>
+    {% endfor %}
+    {% if user.is_authenticated %}
+      <h4>Leave a comment:</h4>
+      <p>
+        Signed in as: <b>{{ user.userprofile }}</b>
+        <br />
+        <div class="displayNameArea">
+        <small onclick="myFunction()"><a>Change display name?</a></small>
+        <div id="displayNameForm" class="displayNameForm">
+        <form action="{% url 'display_name_change' %}" method="post">
+          {% csrf_token %}
+          <div>{{ display_name_form.name }}</div>
+          <input type="hidden" name="next" value="{{ request.path }}">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+      </p>
+      <form method="post">
+        {% csrf_token %}
+        <div>{{ comment_form.body }}</div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    {% else %}
+      <h4>
+        <a href="{% url "account_login" %}?next={{ request.path }}">Sign in to leave a comment!</a>
+      </h4>
+    {% endif %}
+  {% endblock page_content %}
