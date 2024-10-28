@@ -1,4 +1,5 @@
 # Create your views here.
+from django.core.mail import mail_admins
 from django.shortcuts import render
 from django.db.models import F
 from django.http import HttpResponseRedirect
@@ -41,8 +42,10 @@ def blog_detail(request, slug):
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
-            comment = Comment(author=request.user, body=form.cleaned_data['body'], post=post)
+            body = form.cleaned_data['body']
+            comment = Comment(author=request.user, body=body, post=post)
             comment.save()
+            mail_admins("User " + str(request.user.userprofile) + " has left a comment on " + post.title, "User " + str(request.user.userprofile) + " has left a comment on " + post.title + ": " + body)
             return HttpResponseRedirect(request.path_info)
     comments = Comment.objects.filter(post=post)
     context = {
