@@ -281,16 +281,6 @@ header > nav a[aria-current="true"] {
   cursor: pointer;
 }
 
-/* Reduce nav side on mobile */
-@media only screen and (max-width: 720px) {
-  header > nav a {
-    border: none;
-    padding: 0;
-    text-decoration: underline;
-    line-height: 1;
-  }
-}
-
 /* Consolidate box styling */
 aside,
 details,

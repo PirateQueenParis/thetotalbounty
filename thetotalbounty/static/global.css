@@ -60,7 +60,6 @@ p {
 .pageContainer {
   display: flex;
   flex-direction: column;
-  width: 66%;
   background-color: rgba(0, 0, 0, 0.2);
   margin-top: 1rem;
   padding: 0.5rem 1.7rem;
@@ -81,6 +80,7 @@ header nav a:visited {
 
 .postPageContainer {
   display: flex;
+  flex-direction: column-reverse;
 }
 
 .posts {
@@ -98,7 +98,6 @@ header nav a:visited {
   padding-top: 1.7rem;
   background-color: black;
   width: 100%;
-  height: 250px;
   background-image: url("banner_background.png");
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -107,8 +106,7 @@ header nav a:visited {
 }
 
 .mainLogo {
-  position: absolute;
-  left: 2rem;
+  max-width: 100%;
 }
 
 .footerLeft {
@@ -133,4 +131,22 @@ hr {
   border-top: 1px solid #000;
   margin: 1em 0;
   padding: 0;
+}
+
+@media (min-width: 720px) {
+  .pageContainer {
+    width: 66%;
+    margin-top: 1rem;
+  }
+  .postPageContainer {
+    display: flex;
+    flex-direction: row;
+  }
+  .mainLogo {
+    position: absolute;
+    left: 2rem;
+  }
+  .mainHeader {
+    height: 250px;
+  }
 }
